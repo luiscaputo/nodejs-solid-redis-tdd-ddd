@@ -1,0 +1,14 @@
+version: "3.7"
+
+services:
+
+  app:
+    container_name: nodeJs_solid_redis_tdd_ddd
+    restart: always
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./src:/nodeJs_solid_redis_tdd_ddd/src
+    ports:
+      - "3000:3022"
