@@ -1,3 +1,4 @@
+import { setRedis } from '~/configs/db/redis';
 import { productStatus } from '~/helpers/productStatus';
 import { AppError } from '~/shared/errors/appErrors';
 import { inject, injectable } from 'tsyringe';
@@ -26,6 +27,7 @@ class GetProductUseCase {
     if (product.status !== productStatus.published) {
       throw new AppError(errorsMessages.productNotFound, 401);
     }
+
     return product;
   }
 }
