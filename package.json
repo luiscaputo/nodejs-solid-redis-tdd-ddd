@@ -37,6 +37,7 @@
     "google-auth-library": "^8.1.1",
     "handlebars": "^4.7.7",
     "html-entities": "^2.3.3",
+    "ioredis": "^5.2.3",
     "jest": "^29.2.2",
     "jsonwebtoken": "^8.5.1",
     "morgan": "^1.10.0",
