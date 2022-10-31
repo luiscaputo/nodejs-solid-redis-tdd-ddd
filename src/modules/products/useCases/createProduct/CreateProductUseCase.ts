@@ -1,3 +1,4 @@
+import { setRedis } from '~/configs/db/redis';
 import { generateProductCode } from '~/helpers/functions';
 import { productStatus } from '~/helpers/productStatus';
 import { Brands } from '~/models/Brands';
@@ -100,6 +101,8 @@ class CreateProductUseCase {
       brandsId: brands,
     });
 
+    // added product on redis
+    await setRedis(`product-${product}`, JSON.stringify(product));
     return product;
   }
 }
