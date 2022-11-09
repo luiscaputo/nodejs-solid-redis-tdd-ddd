@@ -9,7 +9,7 @@ class CreateStoresController {
 
     const stores = await useCase.execute(req.body);
 
-    return res.status(200).json({
+    return res.status(201).json({
       success: true,
       data: stores,
     });

@@ -2,13 +2,35 @@ version: "3.7"
 
 services:
 
+  redis:
+    image: redis
+    container_name: redis_solid_redis_tdd_ddd
+    ports:
+      - '6379:6379'
+    volumes: 
+      - cache:/data
+    networks:
+      - app-network
+
   app:
     container_name: nodeJs_solid_redis_tdd_ddd
     restart: always
     build:
       context: .
       dockerfile: Dockerfile
+    env_file:
+      - .env
     volumes:
       - ./src:/nodeJs_solid_redis_tdd_ddd/src
     ports:
       - "3000:3022"
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
+
+volumes:
+  cache:
+    driver: local
